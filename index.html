@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Note for Shraw ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="website-container">
+        
+        <section id="access-gate" class="card">
+            <h1 class="title">🔐 Access Required</h1>
+            <p class="body-text">This message is top secret and for one person only! Enter the special code to continue.</p>
+            
+            <input type="password" id="access-code" placeholder="Enter Code Here" required>
+            <p id="error-message" class="error-text hidden">Wrong code! Try again. 😉</p>
+            
+            <button onclick="checkAccessCode()">Unlock the Secret ❤️</button>
+        </section>
+
+        <section id="step-1" class="card hidden">
+            <p class="subtitle">A Note for You</p>
+            <img src="your-cute-photo-1.jpg" alt="A special picture for Shraw" class="card-image-large">
+            <h1 class="title">Hey cutie! 🥰</h1>
+            <p class="body-text"> aaj princess day hai btw ye to sirf bahana hai I wanted to do something special for you, so I made something special just for you...</p>
+            <p class="body-text click-text">Click below to see what it is!</p>
+            <button onclick="nextStep(2)">Open My Heart ❤️</button>
+        </section>
+
+        <section id="step-2" class="card hidden">
+            <p class="subtitle">A  Letter</p>
+            <h2 class="title-small">From my heart to yours</h2>
+            <div id="envelope-container" onclick="openEnvelope()">
+                <div class="envelope">
+                    <div class="flap"></div>
+                    <div class="body"></div>
+                    <div class="letter">
+                        <p class="letter-heading">My Dearest Shraw,</p>
+                        <p class="letter-content">
+                            Every moment with you feels like a beautiful dream that I never want to wake up from. I want you to know that you are the most precious person in my life. Every day with you is a gift, and I'm grateful for every second we share together. You make me want to be the best version of myself. You are my sunshine.
+                        </p>
+                        <p class="letter-signature">With all my love, Always Yours ❤️</p>
+                    </div>
+                </div>
+                <p class="click-text">Click to open the envelope!</p>
+            </div>
+            <button id="continue-2" class="hidden" onclick="nextStep(3)">Continue To See More ➡️</button>
+        </section>
+
+        <section id="step-3" class="card hidden">
+            <p class="subtitle">A Dedicated Playlist For You</p>
+            <h2 class="title-small">I hope you'll like it 🎶</h2>
+            <p class="body-text">Choose a track to play:</p>
+            
+            <div id="youtube-player-container" class="youtube-player-container">
+                <p id="player-status">Click a song card to load and play the music!</p>
+            </div>
+
+            <div class="playlist-grid">
+                
+                <div class="song-card" data-song-id="1" data-video-id="WnU0lH6C0EA"> 
+                    <img src="zehnaseeb-cover.jpg" alt="Zehnaseeb cover">
+                    <p class="song-title">Zehnaseeb</p>
+                    <p class="song-info">From Hasee Toh Phasee</p>
+                </div>
+
+                <div class="song-card" data-song-id="2" data-video-id="uq00EreNHYk">
+                    <img src="aapki-ankhon-me-cover.jpg" alt="Aapki Ankhon Mein cover">
+                    <p class="song-title">Aapki Ankhon Me</p>
+                    <p class="song-info">...Kuch mehke hue se khwab hai</p>
+                </div>
+
+                <div class="song-card" data-song-id="3" data-video-id="y_GVDbfaiwQ">
+                    <img src="dooron-dooron-cover.jpg" alt="Dooron Dooron Me cover">
+                    <p class="song-title">Dooron Dooron Me</p>
+                    <p class="song-info">Our forever song</p>
+                </div>
+            </div>
+
+            <button onclick="nextStep(4)">Continue to Next ➡️</button>
+        </section>
+
+        <section id="step-4" class="card hidden">
+            <p class="subtitle">Some Special Cards For You</p>
+            <h2 class="title-small">Click each card to reveal a special message!</h2>
+            <div class="cards-container">
+                
+                <div class="flip-card" onclick="flipCard(this, 1)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"><p>Tap Me!</p></div>
+                        <div class="flip-card-back">
+                            <p class="message-text">You're my favorite kind of memory—the one that makes me smile without even realizing it. ❤️</p>
+                            <p class="tap-to-flip">Tap to flip back</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" onclick="flipCard(this, 2)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"><p>Tap Me!</p></div>
+                        <div class="flip-card-back">
+                            <p class="message-text">You don't even have to try—you just make everything around you feel lighter, warmer, better. ✨</p>
+                            <p class="tap-to-flip">Tap to flip back</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" onclick="flipCard(this, 3)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"><p>Tap Me!</p></div>
+                        <div class="flip-card-back">
+                            <p class="message-text">The little things you do—your expressions, your laughter, the way you talk—they're all my favorite details. 🥰</p>
+                            <p class="tap-to-flip">Tap to flip back</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p id="message-progress">0 of 3 messages discovered! Keep exploring ❤️</p>
+            <button id="continue-4" class="hidden" onclick="showFinalLetterPopup()">Open the Final Letter 💌</button>
+
+            <div id="final-letter-popup" class="popup-overlay hidden">
+                <div class="popup-content">
+                    <h3>All Messages Unlocked!</h3>
+                    <p>Each message is a piece of my heart that belongs to you forever.</p>
+                    <button onclick="nextStep(5)">Open the Final Letter ➡️</button>
+                    <a href="#" onclick="hideFinalLetterPopup(event)">Stay here a bit longer</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="step-5" class="card hidden">
+            <h3 class="title-small">💌 Final Love Letter</h3>
+            <div class="final-letter-content">
+                <p>My sweetest darling,</p>
+                <p class="highlight-text">You're the calm I reach for and the laugh that brightens my day.</p>
+                <p>I hope this tiny world made you smile — and whispered how much you mean to me.</p>
+                <p>I'll keep making memories, big and small, always with you.</p>
+                <p class="highlight-text">Forever yours, in every little universe.</p>
+            </div>
+            <p class="body-text sealing-note">Sealing will finish the experience.</p>
+            <button onclick="sealLetter()">Seal this Letter 💌</button>
+        </section>
+        
+        <section id="step-6" class="card hidden">
+            <div class="sealed-icon">❤️</div>
+            <h1 class="title">Letter Sealed with Love</h1>
+            <p class="body-text">I Love You Always</p>
+            <div class="hearts">
+                <span>V</span><span>V</span><span>V</span><span>V</span><span>V</span><span>V</span>
+            </div>
+            <p class="signature-line">Always Yours ❤️</p>
+            <p class="date-line">Soham, November 18, 2025</p>
+            <div class="final-buttons">
+                <button onclick="nextStep(1)">Experience Again ↩️</button>
+                <button>Send a Virtual Kiss 😘</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
